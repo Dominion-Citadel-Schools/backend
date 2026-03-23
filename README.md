@@ -20,12 +20,54 @@ The API is designed for multiple environments (development, staging, production)
 
 v1/
 ├── manage.py
+├── about/
+│   ├── models.py
+│   ├── views.py
+│   ├── serializers.py
+│   └── urls.py
+├── academics/
+│   ├── models.py
+│   ├── views.py
+│   ├── serializers.py
+│   └── urls.py
+├── admission/
+│   ├── models.py
+│   ├── views.py
+│   ├── serializers.py
+│   └── urls.py
 ├── config/                # Project settings
 │   ├── settings/               # Base, dev, staging, prod configs
 │   ├── urls.py
 │   └── wsgi.py
-├── schools/                    # Main app
+├── contact/                    
 │   ├── models.py
+│   ├── views.py
+│   ├── serializers.py
+│   └── urls.py
+├── core/
+│   ├── models.py
+│   ├── views.py
+│   ├── serializers.py
+│   └── urls.py
+├── gallery/
+│   ├── models.py
+│   ├── views.py
+│   ├── serializers.py
+│   └── urls.py
+├── media_config/
+│   ├── models.py
+│   ├── views.py
+│   ├── serializers.py
+│   └── urls.py
+├── statics/
+├── templates/
+├── testimonials/
+│   ├── models.py
+│   ├── views.py
+│   ├── serializers.py
+│   └── urls.py
+├── users/
+│   ├──models.py
 │   ├── views.py
 │   ├── serializers.py
 │   └── urls.py
