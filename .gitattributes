@@ -29,6 +29,7 @@
 *.gif binary
 *.ico binary
 *.svg binary
+*.otf binary
 *.eot binary
 *.ttf binary
 *.woff binary
@@ -36,6 +37,7 @@
 *.mp4 binary
 *.pdf binary
 *.zip binary
+
 
 # Force LF for all files in static/admin, static/vendor, and Django extensions
 static/**/* text eol=lf
