@@ -1,0 +1,58 @@
+{% extends "admin/change_list.html" %}
+
+{% block content %}
+
+<div class="row mb-3 mt-3">
+
+<div class="col-lg-3">
+<div class="card bg-primary">
+<div class="card-body">
+<h3>{{ total_albums }}</h3>
+<p>Total Albums</p>
+</div>
+</div>
+</div>
+
+<div class="col-lg-3">
+<div class="card bg-success">
+<div class="card-body">
+<h3>{{ published_albums }}</h3>
+<p>Published Albums</p>
+</div>
+</div>
+</div>
+
+<div class="col-lg-3">
+<div class="card bg-warning">
+<div class="card-body">
+<h3>{{ draft_albums }}</h3>
+<p>Draft Albums</p>
+</div>
+</div>
+</div>
+
+<div class="col-lg-3">
+<div class="card bg-danger">
+<div class="card-body">
+<h3>{{ Deleted_ablums }}</h3>
+<p>Total Deleted ablums</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="row mb-3">
+<div class="col-lg-3">
+<div class="card bg-info">
+<div class="card-body">
+<h3>{{ media_total }}</h3>
+<p>Total Media Files</p>
+</div>
+</div>
+</div>
+</div>
+
+
+{{ block.super }}
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logged Out</title>
+    <style>
+        body {
+            background: #343a40;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            color: black;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        img {
+            height: 100px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #c6932f;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .btn:hover {
+            background: #a97a24;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <img src="{% static 'images/school_logo.jpg' %}" alt="Logo">
+
+    <h2>You have been logged out</h2>
+
+    <p>Thank you for using Dominion Citadel Schools CMS.</p>
+
+    <a href="{% url 'admin:login' %}" class="btn">
+        Log in again
+    </a>
+    <p>Redirecting in <span id="count">10</span> seconds...</p>
+</div>
+
+<script>
+    let count = 10;
+
+const interval = setInterval(() => {
+    count--;
+    document.getElementById("count").innerText = count;
+
+    if (count === 0) {
+        clearInterval(interval);
+        window.location.href = "/admin/login/";
+    }
+}, 1000);
+</script>
+</body>
+</html>

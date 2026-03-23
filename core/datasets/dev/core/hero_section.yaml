@@ -1,0 +1,8 @@
+HeroSection:
+  - headline: "Welcome to Dominion Citadel Schools"
+    subheadline: "Raising future leaders through excellence in education, discipline, and innovation."
+    primary_cta_text: "Apply Now"
+    primary_cta_url: "https://www.dominioncitadelschools.com/apply"
+    secondary_cta_text: "Book a Tour"
+    secondary_cta_url: "https://www.dominioncitadelschools.com/tour"
+    is_active: true

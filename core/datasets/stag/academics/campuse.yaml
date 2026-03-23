@@ -1,0 +1,36 @@
+Campuse:
+  - name: "Sangotedo Campus"
+    location: "Sangotedo, Lekki"
+    description: "A vibrant campus offering a nurturing and innovative learning environment for young minds."
+    year_established: 2005
+    features:
+      - "STEM Labs"
+      - "Modern Classrooms"
+      - "Sports Facilities"
+      - "Library & Media Center"
+    is_active: true
+    image: null
+
+  - name: "Majek Campus"
+    location: "Majek, Ajah"
+    description: "Focused on academic excellence with hands-on learning and interactive programs."
+    year_established: 1998
+    features:
+      - "Science Laboratories"
+      - "ICT Center"
+      - "Creative Arts Studio"
+      - "Sports Complex"
+    is_active: true
+    image: null
+
+  - name: "Oribanwa Campus"
+    location: "Oribanwa, Ibeju-Lekki"
+    description: "A modern campus equipped with world-class facilities for holistic education."
+    year_established: 2010
+    features:
+      - "Smart Classrooms"
+      - "Innovation Hub"
+      - "Music Studio"
+      - "Community Center"
+    is_active: true
+    image: null

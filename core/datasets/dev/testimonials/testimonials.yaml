@@ -1,0 +1,27 @@
+Testimonial:
+  - full_name: "Sarah Johnson"
+    role: "PARENT"
+    rating: 5
+    message: "Emerald Schools has exceeded our expectations. The teachers are dedicated, the curriculum is challenging, and my daughter has grown both academically and personally."
+    graduation_year: null
+    status: "APPROVED"
+    is_active: true
+    image: null
+
+  - full_name: "Michael Chen"
+    role: "ALUMNI"
+    rating: 5
+    message: "The education I received at Emerald Schools prepared me exceptionally well for college. The critical thinking skills and work ethic I developed have been invaluable."
+    graduation_year: 2020
+    status: "APPROVED"
+    is_active: true
+    image: null
+
+  - full_name: "Dr. Lisa Rodriguez"
+    role: "PARENT"
+    rating: 5
+    message: "The small class sizes and individualized attention have made such a difference for my children. They love coming to school and are excited about learning every day."
+    graduation_year: null
+    status: "APPROVED"
+    is_active: true
+    image: null

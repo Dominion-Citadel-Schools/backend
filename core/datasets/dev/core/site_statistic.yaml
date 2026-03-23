@@ -1,0 +1,20 @@
+SiteStatistic:
+  - label: "Students"
+    value: "1,200+"
+    icon: "users"
+    is_active: true
+
+  - label: "Teachers"
+    value: "75+"
+    icon: "chalkboard-teacher"
+    is_active: true
+
+  - label: "Graduates"
+    value: "5,000+"
+    icon: "graduation-cap"
+    is_active: true
+
+  - label: "Years Of Excellence"
+    value: "15+"
+    icon: "award"
+    is_active: true

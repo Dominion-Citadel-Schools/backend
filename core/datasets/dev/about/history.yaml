@@ -1,0 +1,40 @@
+history_section:
+
+  title: "Our Rich History"
+
+  content: |
+    Founded in 2021 by a group of dedicated educators and community leaders, 
+    Emerald Schools began as a small elementary school with just 50 students. 
+    Our founders shared a vision of creating an educational environment that 
+    would challenge students academically while nurturing their character and creativity.
+
+    Over the decades, we've grown into a comprehensive K-12 institution serving 
+    over 2,500 students. Our expansion has been guided by our commitment to 
+    maintaining small class sizes and personalized attention while adding 
+    innovative programs and state-of-the-art facilities.
+
+    Today, Dominion Citadel Schools is recognized as one of the premier educational 
+    institutions in the region, with graduates attending top universities 
+    and making meaningful contributions to their communities worldwide.
+
+  founded_year: 2021
+
+  section_type: "history"
+
+  is_active: true
+
+  image: "about/history/Dominion_citadel_school_building.jpg"
+
+
+
+achievement_stats:
+
+  years_of_excellence: 40
+
+  graduates: 15000
+
+  faculty_members: 180
+
+  college_acceptance_rate: 98.00
+
+  is_active: true

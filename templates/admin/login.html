@@ -1,0 +1,193 @@
+{% extends "admin/login.html" %}
+{% load static %}
+
+{% block branding %}
+{% endblock %}
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dominion Citadel Schools Admin</title>
+
+
+{% block extrastyle %}
+
+<style>
+
+.login-logo{
+display:none !important;
+}
+
+.login-box{
+max-width:500px;
+width:100%;
+margin:auto;
+}
+
+.card{
+border-radius:20px !important;
+overflow:hidden !important;
+backdrop-filter:blur(10px);
+}
+
+
+.login-card-body{
+padding:35px 30px !important;
+background:white!important;
+text-align:center;
+border-radius:20px !important;
+}
+
+
+/* login wrapper */
+
+.login-wrapper{
+
+width:100%;
+max-width:420px;
+}
+
+.logo img{
+
+height:70px;
+margin-bottom:10px;
+
+}
+
+.logo h2{
+
+font-size:22px;
+margin-bottom:20px;
+color: #c6932f;
+
+}
+
+/* form */
+
+form{
+
+width:100%;
+
+}
+
+label{
+
+display:block;
+text-align:left;
+margin-top:15px;
+font-size:14px;
+color:black !important;  
+
+}
+
+input{
+
+width:100%;
+
+padding:12px;
+
+margin-top:6px;
+
+border-radius:8px;
+
+border:1px solid #ddd;
+
+font-size:16px;
+
+color:black !important;   
+background:white !important;
+
+}
+
+/* button */
+
+button{
+
+width:100%;
+margin-top:20px;
+padding:14px;
+
+background:#c6932f;
+color:white;
+
+border:none;
+border-radius:8px;
+
+font-weight:bold;
+font-size:16px;
+cursor:pointer;
+
+}
+
+button:hover{
+
+background:#a97a24;
+
+}
+
+/* footer */
+
+.footer{
+
+margin-top:20px;
+
+font-size:13px;
+
+color:#666;
+
+}
+
+/* mobile adjustments */
+
+@media (max-width:576px){
+
+.login-box{
+max-width:90%;
+}
+
+.logo img{
+height:55px;
+}
+
+.logo h2{
+font-size:18px;
+}
+
+}
+
+</style>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="login-wrapper">
+
+<div class="logo">
+<img src="{% static 'images/school_logo.jpg' %}">
+<h2>Dominion Citadel Schools Admin</h2>
+
+</div>
+
+<form method="post">
+
+{% csrf_token %}
+
+{{ form.username.label_tag }}
+{{ form.username }}
+
+{{ form.password.label_tag }}
+{{ form.password }}
+
+<button type="submit">Login</button>
+
+</form>
+
+<div class="footer">
+Dominion Citadel Schools CMS
+</div>
+
+</div>
+
+{% endblock %}

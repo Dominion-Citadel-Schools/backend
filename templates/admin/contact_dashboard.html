@@ -1,0 +1,39 @@
+{% extends "admin/change_list.html" %}
+
+{% block content %}
+
+<div class="row mb-3 mt-3">
+
+<div class="col-md-4">
+<div class="card bg-primary">
+<div class="card-body">
+<h3>{{ total_messages }}</h3>
+<p>Total Messages</p>
+</div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card bg-success">
+<div class="card-body">
+<h3>{{ resolved_messages }}</h3>
+<p>Resolved</p>
+</div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card bg-danger">
+<div class="card-body">
+<h3>{{ unresolved_messages }}</h3>
+<p>Pending</p>
+</div>
+</div>
+</div>
+
+</div>
+
+
+{{ block.super }}
+
+{% endblock %}

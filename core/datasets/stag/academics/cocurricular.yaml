@@ -1,0 +1,44 @@
+categories:
+
+  - name: Sports & Athletics
+    icon: fa-futbol
+    order: 1
+    activities:
+      - Basketball
+      - Soccer
+      - Swimming
+      - Track & Field
+      - Tennis
+      - Volleyball
+
+  - name: Arts & Culture
+    icon: fa-palette
+    order: 2
+    activities:
+      - Drama Club
+      - School Choir
+      - Art Studio
+      - Photography
+      - Creative Writing
+      - Dance
+
+  - name: Academic Clubs
+    icon: fa-book-open
+    order: 3
+    activities:
+      - Debate Team
+      - Science Olympiad
+      - Math Club
+      - Model UN
+      - Robotics
+      - Chess Club
+
+  - name: Community Service
+    icon: fa-hand-holding-heart
+    order: 4
+    activities:
+      - Environmental Club
+      - Peer Tutoring
+      - Community Outreach
+      - Food Drive
+      - Charity Events

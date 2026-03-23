@@ -1,0 +1,26 @@
+mission_section:
+  section_type: "mission"
+  is_active: true
+
+  statement: |
+    To provide a comprehensive, innovative education that empowers students
+    to become confident, creative, and compassionate leaders who will make
+    positive contributions to their communities and the world.
+
+    We believe that every student has unique talents and potential. Our
+    dedicated faculty and staff work collaboratively to create an environment
+    where students can explore their interests, develop critical thinking
+    skills, and build the character necessary for lifelong success.
+
+  core_values:
+    - title: "Compassion"
+      description: "We foster empathy and kindness in all our interactions."
+
+    - title: "Excellence"
+      description: "We strive for the highest standards in everything we do."
+
+    - title: "Community"
+      description: "We build strong relationships and support each other."
+
+    - title: "Learning"
+      description: "We embrace curiosity and lifelong learning."

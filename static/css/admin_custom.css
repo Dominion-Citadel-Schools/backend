@@ -1,0 +1,264 @@
+
+
+/* ========================================
+   GLOBAL ADMIN LAYOUT FIXES
+======================================== */
+
+/* Allow full width layout */
+
+.content-wrapper{
+    width:100%;
+    margin-left:250px;
+    transition: margin-left .3s ease;
+}
+
+/* Expand content when sidebar collapses */
+
+.sidebar-collapse .content-wrapper{
+    margin-left:0;
+}
+
+/* Make containers fluid */
+
+.container-fluid{
+    max-width:100% !important;
+}
+
+/* Prevent row overflow */
+
+.row{
+    margin-left:0;
+    margin-right:0;
+}
+
+/* Prevent dashboard shrinking */
+
+.content{
+    min-width:0;
+}
+
+
+
+/* ========================================
+   DASHBOARD CARD IMPROVEMENTS
+======================================== */
+
+.card{
+    width:100%;
+    border-radius:10px;
+}
+
+.card-body{
+    overflow-x:auto;
+}
+
+
+
+/* ========================================
+   DJANGO ADMIN TABLE FIXES
+======================================== */
+
+/* Prevent tables from breaking layout */
+
+.change-list .results{
+    overflow-x:auto;
+}
+
+.results table{
+    min-width:700px;
+}
+
+
+
+/* ========================================
+   ACTION BUTTONS (Add / Change / Delete)
+======================================== */
+
+.object-tools{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.object-tools li{
+    margin:0;
+}
+
+
+
+/* ========================================
+   MOBILE OPTIMIZATION
+======================================== */
+
+@media (max-width:991px){
+
+/* On mobile sidebar overlays content */
+
+.content-wrapper{
+    margin-left:0;
+}
+
+/* Improve spacing */
+
+.content-wrapper{
+    padding:12px;
+}
+
+/* Dashboard cards spacing */
+
+.card{
+    margin-bottom:15px;
+}
+
+/* Tables scroll instead of shrinking */
+
+.results{
+    overflow-x:auto;
+}
+
+}
+
+
+
+/* ========================================
+   FORM IMPROVEMENTS FOR MOBILE
+======================================== */
+
+@media (max-width:768px){
+
+/* Inputs fit mobile screens */
+
+.form-row{
+    flex-direction:column;
+}
+
+.form-row > div{
+    width:100%;
+}
+
+/* Fix filter sidebar */
+
+#changelist-filter{
+    width:100%;
+    margin-top:20px;
+}
+
+/* Better spacing */
+
+fieldset.module{
+    padding:15px;
+}
+
+}
+
+
+
+/* ========================================
+   SMALL SCREEN ADJUSTMENTS
+======================================== */
+
+@media (max-width:576px){
+
+h1{
+    font-size:20px;
+}
+
+.breadcrumb{
+    font-size:13px;
+}
+
+}
+
+
+
+/* ========================================
+   SMOOTH SIDEBAR TRANSITIONS
+======================================== */
+
+.main-sidebar{
+    transition: transform .3s ease;
+}
+
+
+
+/* ========================================
+   OPTIONAL: CLEANER SCROLLBARS
+======================================== */
+
+.results::-webkit-scrollbar{
+    height:6px;
+}
+
+.results::-webkit-scrollbar-thumb{
+    background:#bbb;
+    border-radius:4px;
+}
+
+/* Fix Django permission selector scrolling */
+
+.selector-available,
+.selector-chosen{
+    overflow-x:auto;
+}
+
+/* Make select boxes scroll horizontally */
+
+.selector-available select,
+.selector-chosen select{
+    min-width:600px;
+    overflow-x:auto;
+    white-space:nowrap;
+}
+
+/* Prevent permission text wrapping */
+
+.selector-available option,
+.selector-chosen option{
+    white-space:nowrap;
+}
+
+/* Vertical scroll for long permission lists */
+
+.selector-available select,
+.selector-chosen select{
+    height:250px;
+    overflow-y:auto;
+}
+
+@media (max-width:768px){
+
+.selector{
+    display:block;
+}
+
+.selector-available,
+.selector-chosen{
+    width:100%;
+}
+
+.selector-chooser{
+    width:100%;
+    margin:10px 0;
+}
+
+}
+
+/* Position Logout Logo to the center */
+
+.brand-link {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px;
+}
+
+.brand-link img {
+    max-height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+.brand-text {
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+}

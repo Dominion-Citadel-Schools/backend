@@ -1,0 +1,134 @@
+school_tour_section:
+
+  albums:
+
+    - section_type: "school_tour"
+
+      title: "Oribanwa Campus Main Academic Building"
+      description: >
+        The Oribanwa Campus Main Academic Building brings together crèche, primary, and secondary school facilities in one vibrant learning environment. Each section features modern classrooms, well-equipped science laboratories for the secondary school, and dedicated administrative offices—designed to support excellence in education from early years through advanced studies.
+
+      album_type: "PICTURE"
+
+      cover_image: "about/schooltour/Oribanwa_campus_cover_image.jpeg"
+
+      event_date: "2026-03-17"
+
+      is_published: true
+
+      media_items:
+
+        - image: "about/schooltour/PHOTO-2024-07-16-14-44-43.jpg"
+
+        - image: "about/schooltour/PHOTO-2024-07-16-14-45-03.jpg"
+
+        - image: "about/schooltour/PHOTO-2024-07-16-14-45-04_1.jpg"
+
+        - image: "about/schooltour/PHOTO-2024-07-16-14-45-04_2.jpg"
+
+        - image: "about/schooltour/PHOTO-2024-07-16-14-45-04_3.jpg"
+
+        - image: "about/schooltour/PHOTO-2024-07-16-14-45-04_4.jpg"
+
+        - image: "about/schooltour/PHOTO-2024-07-16-14-45-04.jpg"
+
+        - image: "about/schooltour/PHOTO-2024-07-16-14-45-05_1.jpg"
+
+        - image: "about/schooltour/PHOTO-2024-07-16-14-45-05_2.jpg"
+
+        - image: "about/schooltour/PHOTO-2024-07-16-14-45-05_3.jpg"
+
+        - image: "about/schooltour/PHOTO-2024-07-16-14-45-05.jpg"
+
+        - image: "about/schooltour/PHOTO-2024-07-16-14-45-06_1.jpg"
+
+        - image: "about/schooltour/PHOTO-2024-07-16-14-45-06_2.jpg"
+
+        - image: "about/schooltour/PHOTO-2024-07-16-14-45-06_3.jpg"
+
+        - image: "about/schooltour/PHOTO-2024-07-16-14-45-06.jpg"
+
+        - image: "about/schooltour/PHOTO-2024-07-16-14-45-07_1.jpg"
+
+        - image: "about/schooltour/PHOTO-2024-07-16-14-45-07_2.jpg"
+
+        - image: "about/schooltour/PHOTO-2024-07-16-14-45-07.jpg"
+
+        - image: "about/schooltour/PHOTO-2025-06-22-16-46-23_1.jpg"
+
+        - image: "about/schooltour/PHOTO-2025-06-22-16-46-23.jpg"
+
+        - image: "about/schooltour/PHOTO-2025-06-22-16-46-24.jpg"  
+
+
+
+    - section_type: "school_tour"
+
+      title: "Majek Campus Main Academic Building"
+      description: >
+        The Majek Campus Main Academic Building houses the crèche, primary, and junior secondary school facilities. Each building is equipped with modern classrooms, science laboratories (for the junior secondary school), and administrative offices—creating a vibrant and supportive learning environment for students from early childhood through junior secondary level.
+
+      album_type: "PICTURE"
+
+      cover_image: "about/schooltour/Majek_campus_cover_image.jpeg"
+
+      event_date: "2026-03-17"
+
+      is_published: true
+
+      media_items:
+
+  
+        - image: "about/schooltour/PHOTO-2025-06-22-16-53-05_1.jpg"
+
+        - image: "about/schooltour/PHOTO-2025-06-22-16-53-05.jpg"
+
+        - image: "about/schooltour/PHOTO-2025-06-22-16-53-06_1.jpg"
+
+        - image: "about/schooltour/PHOTO-2025-06-22-16-53-06_2.jpg"
+
+        - image: "about/schooltour/PHOTO-2025-06-22-16-53-06_3.jpg"
+
+        - image: "about/schooltour/PHOTO-2025-06-22-16-53-06.jpg"
+
+        - image: "about/schooltour/PHOTO-2025-06-22-16-53-07_1.jpg"
+
+        - image: "about/schooltour/PHOTO-2025-06-22-16-53-07.jpg"
+
+
+    - section_type: "school_tour"
+
+      title: "Sangotedo Campus Main Academic Building"
+      description: >
+        The Sangotedo Campus Main Academic Building comprises the crèche and primary school facilities. Each building is equipped with modern classrooms and administrative offices, providing a nurturing and structured environment for early childhood and foundational learning.
+
+      album_type: "PICTURE"
+
+      cover_image: "about/schooltour/Sangotedo_campus_cover_image.jpeg"
+
+      event_date: "2026-03-17"
+
+      is_published: true
+
+      media_items:
+
+        - image: "about/schooltour/PHOTO-2025-06-22-16-53-06.jpg"
+
+        - image: "about/schooltour/PHOTO-2025-06-22-17-03-08_1.jpg"
+
+        - image: "about/schooltour/PHOTO-2025-06-22-17-03-08.jpg"
+
+        - image: "about/schooltour/PHOTO-2025-06-22-17-03-11_1.jpg"
+
+        - image: "about/schooltour/PHOTO-2025-06-22-17-03-11_2.jpg"
+
+        - image: "about/schooltour/PHOTO-2025-06-22-17-03-11.jpg"
+
+        - image: "about/schooltour/PHOTO-2025-06-22-17-03-12_1.jpg"
+
+        - image: "about/schooltour/PHOTO-2025-06-22-17-03-12_2.jpg"
+
+        - image: "about/schooltour/PHOTO-2025-06-22-17-03-12_3.jpg"
+
+        - image: "about/schooltour/PHOTO-2025-06-22-17-03-12.jpg"
+

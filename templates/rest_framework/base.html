@@ -1,0 +1,22 @@
+{% extends "rest_framework/base.html" %}
+{% load static %}
+
+{% block branding %}
+
+<a class="navbar-brand d-flex align-items-center" href="/">
+    
+    <img src="{% static 'images/school_logo.jpg' %}"
+         alt="Dominion Citadel Schools"
+         style="height:40px; margin-right:20px; margin-top:0px">
+
+    <span style="color:black; font-weight:300;">
+        Dominion Citadel Schools API Endpoint
+    </span>
+
+</a>
+
+{% endblock %}
+
+{% block title %}
+Dominion Citadel Schools API
+{% endblock %}

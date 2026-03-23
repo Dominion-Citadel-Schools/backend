@@ -1,0 +1,36 @@
+vision_section:
+  section_type: vision
+  headline: "Our Vision"
+
+  description: >
+    "To be the premier educational institution that sets the standard for
+    academic excellence, character development, and innovative teaching
+    practices."
+
+    We envision a future where our graduates are equipped with the
+    knowledge, skills, and values needed to thrive in college,
+    career, and life. Through our commitment to continuous
+    improvement and educational innovation, we prepare students
+    to become global citizens and leaders of tomorrow.
+
+  academic_excellence: >
+    Providing rigorous, innovative curriculum that challenges
+    students to reach their full potential while fostering
+    curiosity, creativity, and a lifelong love of learning.
+
+  character_development: >
+    Nurturing ethical, responsible, and compassionate individuals
+    who demonstrate integrity, empathy, and respect while making
+    positive contributions to their communities and society.
+
+  global_citizenship: >
+    Preparing students to understand and engage with diverse
+    cultures, perspectives, and global challenges so they can
+    thrive in an interconnected and rapidly changing world.
+
+  innovation: >
+    Embracing modern teaching strategies, technology integration,
+    and forward-thinking educational practices to enhance learning
+    experiences and empower students to solve real-world problems.
+
+  is_active: true

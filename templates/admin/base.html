@@ -1,0 +1,21 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block branding %}
+<div style="display:flex;align-items:center;gap:10px;">
+<img src="{% static 'images/school_logo.jpg' %}" height="35">
+<h1 style="margin:0;font-size:18px;">
+Dominion Citadel Schools CMS
+</h1>
+</div>
+{% endblock %}
+
+{% block title %}
+Dominion Schools Backend
+{% endblock %}
+
+{% block footer %}
+<footer class="main-footer text-center">
+    <strong>Copyright © 2026 Dominion Citadel Schools.</strong>
+</footer>
+{% endblock %}

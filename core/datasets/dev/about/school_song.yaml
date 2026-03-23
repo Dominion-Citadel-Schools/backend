@@ -1,0 +1,26 @@
+school_song_section:
+  section_type: school_song
+  title: "Dominion Citadel Schools Anthem"
+
+  lyrics: >
+    Verse 1:
+    In halls of learning, bright and true,
+    Where knowledge grows and dreams come through,
+    Emerald Schools, our guiding light,
+    Leading us toward futures bright.
+
+    Chorus:
+    Stand together, hearts as one,
+    Excellence in all we've done,
+    Emerald green, our colors proud,
+    Voices strong and singing loud.
+
+    Verse 2:
+    With compassion as our guide,
+    And wisdom walking by our side,
+    We'll serve our world with hearts so true,
+    Emerald Schools, we honor you.
+
+  audio: about/audio/school_anthem.mp3
+
+  is_active: true

@@ -1,0 +1,20 @@
+WhyChooseUsItem:
+  - title: "Experienced Faculty"
+    description: "Our teachers are highly qualified and committed to nurturing every child."
+    icon: "user-graduate"
+    is_active: true
+
+  - title: "Modern Facilities"
+    description: "We provide state-of-the-art classrooms, labs, and learning environments."
+    icon: "school"
+    is_active: true
+
+  - title: "Holistic Development"
+    description: "We focus on academic excellence, character building, and leadership skills."
+    icon: "brain"
+    is_active: true
+
+  - title: "Safe Environment"
+    description: "Our campus ensures a secure and supportive learning atmosphere."
+    icon: "shield-alt"
+    is_active: true

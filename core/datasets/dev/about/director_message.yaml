@@ -1,0 +1,22 @@
+director_speech_section:
+  section_type: "director_speech"
+
+  name: "Mrs Christabel"
+  position: "School Director"
+
+  message: |
+    Welcome to Dominion Citadel Schools, where we believe every child
+      has the potential to achieve greatness. Our commitment is to provide
+      a nurturing learning environment that encourages academic excellence,
+      creativity, and leadership.
+
+    Through the dedication of our faculty and the support of our families,
+    we continue to build a community where students grow intellectually,
+    socially, and morally.
+
+    Together, we prepare young minds to become responsible citizens and
+    future leaders who will positively impact the world.
+
+  image: "about/director/Director_image.png"
+
+  is_active: true

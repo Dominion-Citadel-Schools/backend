@@ -1,0 +1,39 @@
+Program:
+  - title: "Elementary Education"
+    category: "ELEMENTARY"
+    grades: "K-5"
+    description: "Building strong foundations in core subjects with engaging and interactive learning experiences."
+    key_features:
+      - "STEM Integration"
+      - "Phonics & Literacy"
+      - "Creative Learning"
+      - "Character Development"
+    full_day: true
+    is_active: true
+    image: null
+
+  - title: "Middle School"
+    category: "MIDDLE"
+    grades: "6-8"
+    description: "Preparing students for high school with advanced academics and leadership opportunities."
+    key_features:
+      - "Advanced Placement Prep"
+      - "STEM Programs"
+      - "Student Leadership"
+      - "Sports & Extracurriculars"
+    full_day: true
+    is_active: true
+    image: null
+
+  - title: "High School"
+    category: "HIGH"
+    grades: "9-12"
+    description: "College preparatory education with diverse pathways and real-world applications."
+    key_features:
+      - "AP Courses"
+      - "Career Pathways"
+      - "College Counseling"
+      - "Internship Opportunities"
+    full_day: true
+    is_active: true
+    image: null

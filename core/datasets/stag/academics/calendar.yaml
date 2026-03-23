@@ -1,0 +1,61 @@
+academic_year:
+  name: "Academic Year 2024-2025"
+  start_date: "2024-01-01"
+  end_date: "2025-08-30"
+  is_active: true
+
+events:
+
+  - title: "School Reopens"
+    date: "2024-01-08"
+    month: "January"
+    type: "EVENT"
+    color: "green"
+
+  - title: "Science Fair"
+    date: "2024-01-15"
+    month: "January"
+    type: "EVENT"
+    color: "blue"
+
+  - title: "Parent-Teacher Conference"
+    date: "2024-01-22"
+    month: "January"
+    type: "EVENT"
+    color: "purple"
+
+  - title: "Valentine's Day Event"
+    date: "2024-02-14"
+    month: "February"
+    type: "EVENT"
+    color: "red"
+
+  - title: "Sports Day"
+    date: "2024-02-20"
+    month: "February"
+    type: "EVENT"
+    color: "green"
+
+  - title: "Mid-term Exams Begin"
+    date: "2024-02-26"
+    month: "February"
+    type: "EXAM"
+    color: "orange"
+
+  - title: "Spring Break Begins"
+    date: "2024-03-15"
+    month: "March"
+    type: "HOLIDAY"
+    color: "green"
+
+  - title: "Art Exhibition"
+    date: "2024-03-25"
+    month: "March"
+    type: "EVENT"
+    color: "blue"
+
+  - title: "School Reopens"
+    date: "2024-03-29"
+    month: "March"
+    type: "EVENT"
+    color: "pink"
