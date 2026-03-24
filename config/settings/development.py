@@ -3,7 +3,7 @@ from decouple import config
 
 
 DEBUG = True
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
 APP_ENV = "dev"
 

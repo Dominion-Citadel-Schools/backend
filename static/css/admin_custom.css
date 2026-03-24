@@ -242,23 +242,3 @@ h1{
 }
 
 }
-
-/* Position Logout Logo to the center */
-
-.brand-link {
-    display: flex !important;
-    align-items: center !important;
-    gap: 10px;
-}
-
-.brand-link img {
-    max-height: 40px;
-    width: auto;
-    object-fit: contain;
-}
-
-.brand-text {
-    font-size: 16px;
-    font-weight: 600;
-    white-space: nowrap;
-}

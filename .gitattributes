@@ -1,43 +1,16 @@
-# Python source files
+# Auto-normalize text files
+* text=auto
+
+# Force certain files to always use LF
 *.py text eol=lf
-
-# Django templates
-*.html text eol=lf
-*.txt text eol=lf
-*.md text eol=lf
-
-# JavaScript
 *.js text eol=lf
-
-# CSS files
 *.css text eol=lf
+*.html text eol=lf
+*.svg text eol=lf
 
-# JSON, YAML, XML, CSV
-*.json text eol=lf
-*.yml text eol=lf
-*.yaml text eol=lf
-*.xml text eol=lf
-*.csv text eol=lf
-
-# Shell scripts
-*.sh text eol=lf
-
-# Ignore automatic conversion for binaries
+# Binary files (images, fonts) should not be touched
 *.png binary
 *.jpg binary
-*.jpeg binary
-*.gif binary
-*.ico binary
-*.svg binary
-*.otf binary
-*.eot binary
 *.ttf binary
 *.woff binary
 *.woff2 binary
-*.mp4 binary
-*.pdf binary
-*.zip binary
-
-
-# Force LF for all files in static/admin, static/vendor, and Django extensions
-static/**/* text eol=lf

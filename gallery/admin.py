@@ -1,7 +1,6 @@
 from django.contrib import admin
 from django.core.exceptions import ValidationError
-from media_config.base_admin import BaseValidatedAdmin
-from core.utils.media_preview import media_preview
+from .base_admin import BaseValidatedAdmin
 from django.db.models import Count
 from django.utils.html import format_html
 from gallery.admin_forms import GalleryAlbumAdminForm, GalleryMediaInlineFormSet
@@ -21,8 +20,17 @@ class GalleryMediaInline(admin.TabularInline):
     readonly_fields = ("preview",)
 
     def preview(self, obj):
-        return media_preview(obj)
-    preview.short_description = "Preview"
+        if not obj.image:
+            return "No Image"
+
+        try:
+            return format_html(
+            '<img src="{}" width="120" style="border-radius:6px;" />',
+            obj.image.file.url
+        )
+        except Exception:
+            return "No Preview"
+    preview.short_description = "preview"
 
 
 # -----------------------------

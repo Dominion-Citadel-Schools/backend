@@ -11,7 +11,6 @@ from .base_admin import BaseValidatedAdmin
 from django.core.exceptions import ValidationError
 from django.utils.html import format_html
 from django.db.models import Count
-from core.utils.media_preview import media_preview
 from core.utils.func_create_update_delete import (
     set_created_by,
     set_deleted_by,
@@ -107,8 +106,17 @@ class SchoolTourMediaInline(admin.TabularInline):
     readonly_fields = ("preview",)
 
     def preview(self, obj):
-        return media_preview(obj)
-    preview.short_description = "Preview"
+        if not obj.image:
+            return "No Image"
+
+        try:
+            return format_html(
+            '<img src="{}" width="120" style="border-radius:6px;" />',
+            obj.image.file.url
+        )
+        except Exception:
+            return "No Preview"
+    preview.short_description = "preview"
 
 
 class AlbumStatusFilter(admin.SimpleListFilter):

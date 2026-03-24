@@ -77,7 +77,8 @@ class Testimonial(models.Model):
         constraints = [
         models.UniqueConstraint(
             fields=["full_name", "message_hash"],
-            name="unique_testimonial_hash"
+            name="unique_testimonial_hash",
+            violation_error_message="This testimonial already exists."
         )
         ]
         indexes = [
@@ -124,18 +125,26 @@ class Testimonial(models.Model):
                     "class_level": "class_level is required for STUDENT."
                 })
 
-        if not self.class_level:
-            raise ValidationError({"class_level": "class_level cannot be empty."})
+        
 
         # If not STUDENT, class_level must be empty
         if self.role != "STUDENT" and self.class_level:
             raise ValidationError({
                 "class_level": "Only students can have a class_level."
             })
+        
+        if not self.message_hash:
+            self.message_hash = hashlib.sha256(self.message.encode()).hexdigest()
+
+        if Testimonial.objects.filter(
+            full_name=self.full_name,
+            message_hash=self.message_hash
+        ).exclude(pk=self.pk).exists():
+            raise ValidationError(
+                "Testimonial with this Full name and Message hash already exists."
+            )
 
     def save(self, *args, **kwargs):
-          # Compute message hash
-        self.message_hash = hashlib.sha256(self.message.encode()).hexdigest()
           # Validate model fields
         self.full_clean()
           # Mark as rejected if spam
