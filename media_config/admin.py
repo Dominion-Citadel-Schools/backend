@@ -12,6 +12,7 @@ class AudioAdmin(BaseValidatedAdmin):
     list_filter = ("is_active",)
     search_fields = ("title",)
     readonly_fields = ("uploaded_at", "preview")
+    list_per_page = 10
 
 
 
@@ -25,6 +26,7 @@ class ImageAdmin(BaseValidatedAdmin):
     search_fields = ("title", "alt_text")
     readonly_fields = ("uploaded_at","preview")
     ordering = ("-uploaded_at",)
+    list_per_page = 10
 
    
 
@@ -36,4 +38,5 @@ class VideoAdmin(BaseValidatedAdmin):
     list_filter = ("is_active",)
     search_fields = ("title",)
     readonly_fields = ("uploaded_at", "preview")
+    list_per_page = 10
 

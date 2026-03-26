@@ -39,9 +39,9 @@ class AdmissionFormField(models.Model):
     required = models.BooleanField(default=True)
 
     options = models.JSONField(
-                    default=list,
-                    help_text="Avalaible options for the 'SELECT' FieldType"
-        )
+    default=list,
+    help_text="Only required for SELECT field type (e.g. ['Option 1', 'Option 2'])"
+    )
     
     
 

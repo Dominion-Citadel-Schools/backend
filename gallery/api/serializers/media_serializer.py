@@ -19,9 +19,9 @@ class GalleryMediaSerializer(serializers.ModelSerializer):
         return None
 
     def get_video_url(self, obj):
-        if obj.video:
+        if obj.video and hasattr(obj.video, 'file') and obj.video.file:
             request = self.context.get("request")
-            url = obj.video.url
+            url = obj.video.file.url
             return request.build_absolute_uri(url) if request else url
         return None
     

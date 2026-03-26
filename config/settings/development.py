@@ -20,12 +20,12 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 DATABASES = {
     'default': {
-           'ENGINE': 'django.db.backends.mysql',
+           'ENGINE': 'django.db.backends.postgresql',
             'NAME': config('DB_NAME_DV'),
             'USER': config('DB_USER_DV'),
             'PASSWORD': config('DB_PASSWORD_DV'),
-            'HOST': config('DB_HOST'),
-            'PORT': config('DB_PORT'),
+            'HOST': config('DB_HOST_DV', default="localhost"),
+            'PORT': config('DB_PORT_DV'),
     }
 }
 

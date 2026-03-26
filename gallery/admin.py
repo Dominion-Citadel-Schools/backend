@@ -3,35 +3,47 @@ from django.core.exceptions import ValidationError
 from .base_admin import BaseValidatedAdmin
 from django.db.models import Count
 from django.utils.html import format_html
-from gallery.admin_forms import GalleryAlbumAdminForm, GalleryMediaInlineFormSet
+from gallery.admin_forms import GalleryAlbumAdminForm
 from core.utils.func_create_update_delete import bulk_delete_with_audit, set_created_by, set_deleted_by, set_updated_by
 from .models.album import GalleryAlbum
+from django.urls import reverse
 from .models.media import GalleryMedia
 
 
 # -----------------------------
 # Inline Media
 # -----------------------------
-class GalleryMediaInline(admin.TabularInline):
-    model = GalleryMedia
-    formset = GalleryMediaInlineFormSet
-    extra = 1
-    fields = ("image", "video", "preview")
-    readonly_fields = ("preview",)
+
+
+@admin.register(GalleryMedia)
+class GalleryMediaAdmin(BaseValidatedAdmin):
+    list_display = ("album", "image", "video", "preview","created_at")
+    list_filter = ("album__album_type",)
+    search_fields = ("album__title",)
+    list_per_page = 10
 
     def preview(self, obj):
-        if not obj.image:
-            return "No Image"
-
         try:
-            return format_html(
-            '<img src="{}" width="120" style="border-radius:6px;" />',
-            obj.image.file.url
-        )
-        except Exception:
-            return "No Preview"
-    preview.short_description = "preview"
+            # IMAGE PREVIEW
+            if obj.image and hasattr(obj.image, 'file') and obj.image.file:
+                return format_html(
+                    '<img src="{}" width="120" style="border-radius:6px;" />',
+                    obj.image.file.url
+                )
 
+            # VIDEO PREVIEW
+            if obj.video and hasattr(obj.video, 'file') and obj.video.file:
+                return format_html(
+                    '<video width="180" controls style="border-radius:6px;">'
+                    '<source src="{}" type="video/mp4">'
+                    '</video>',
+                    obj.video.file.url
+                )
+
+            return "No Preview"
+
+        except Exception as e:
+            return f"No Preview ({e})"
 
 # -----------------------------
 # Album Admin
@@ -60,7 +72,6 @@ class GalleryAlbumAdmin(BaseValidatedAdmin):
 
     change_list_template = "admin/gallary_dashboard.html"
     form = GalleryAlbumAdminForm
-    inlines = [GalleryMediaInline]
 
 
     list_display = (
@@ -68,7 +79,9 @@ class GalleryAlbumAdmin(BaseValidatedAdmin):
         "album_type",
         "status_badge",
         "event_date",
+        "view_media",
         "created_at",
+        "add_media",
         "created_name",
         "updated_name",
         "deleted_name",
@@ -84,9 +97,36 @@ class GalleryAlbumAdmin(BaseValidatedAdmin):
 
     search_fields = ("title",)
 
+    list_per_page = 10
+
     ordering = ("-event_date",)
 
     readonly_fields = ("created_at", "updated_at", "created_by","updated_by","deleted_by")
+
+
+    def view_media(self, obj):
+        url = (
+            reverse("admin:gallery_gallerymedia_changelist")
+            + f"?album__id__exact={obj.id}"
+        )
+        return format_html(
+            '<a class="button" href="{}">View Media</a>',
+            url
+        )
+
+    view_media.short_description = "Media"
+
+    def add_media(self, obj):
+        url = (
+            reverse("admin:gallery_gallerymedia_add")
+            + f"?album={obj.id}"
+        )
+        return format_html(
+            '<a class="button" href="{}">Add Media</a>',
+            url
+        )
+
+    add_media.short_description = "Add Media"
 
     def changelist_view(self, request, extra_context=None):
 
@@ -180,7 +220,7 @@ class GalleryAlbumAdmin(BaseValidatedAdmin):
         super().save_related(request, form, formsets, change)
 
         album = form.instance
-        if album.is_published and not album.school_tour_media_items.exists():
+        if album.is_published and not album.media_items.exists():
             raise ValidationError("Cannot publish album without media.")
 
     actions = ["publish_albums", "unpublish_albums",
@@ -207,7 +247,7 @@ class GalleryAlbumAdmin(BaseValidatedAdmin):
         updated = 0
 
         for album in queryset:
-            if album.school_tour_media_items.exists():
+            if album.media_items.exists():
                 album.is_published = True
             album.save()
             updated += 1
@@ -262,9 +302,4 @@ class GalleryAlbumAdmin(BaseValidatedAdmin):
     unpublish_albums.short_description = "Unpublish selected albums"
 
 
-@admin.register(GalleryMedia)
-class GalleryMediaAdmin(BaseValidatedAdmin):
-    list_display = ("album", "image", "video", "created_at")
-    list_filter = ("album__album_type",)
-    search_fields = ("album__title",)
 

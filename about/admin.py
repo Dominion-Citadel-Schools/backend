@@ -1,5 +1,6 @@
 from django.contrib import admin
-from about.school_tour_media_adminform import SchoolTourAlbumAdminForm, SchoolTourMediaInlineFormSet
+from django.urls import reverse
+from about.school_tour_media_adminform import SchoolTourAlbumAdminForm
 from about.models.school_tour_media import SchoolTourMedia
 from .models.history import HistorySection, AchievementStats
 from .models.mission import CoreValue, Mission
@@ -98,25 +99,12 @@ class MissionAdmin(BaseValidatedAdmin):
 
 
 
-class SchoolTourMediaInline(admin.TabularInline):
-    model = SchoolTourMedia
-    formset = SchoolTourMediaInlineFormSet
-    extra = 1
-    fields = ("image", "video", "preview")
-    readonly_fields = ("preview",)
-
-    def preview(self, obj):
-        if not obj.image:
-            return "No Image"
-
-        try:
-            return format_html(
-            '<img src="{}" width="120" style="border-radius:6px;" />',
-            obj.image.file.url
-        )
-        except Exception:
-            return "No Preview"
-    preview.short_description = "preview"
+@admin.register(SchoolTourMedia)
+class SchoolTourMediaAdmin(BaseValidatedAdmin):
+    list_display = ("album", "image", "video", "preview","created_at")
+    list_filter = ("album__album_type",)
+    search_fields = ("album__title",)
+    list_per_page = 10
 
 
 class AlbumStatusFilter(admin.SimpleListFilter):
@@ -143,7 +131,6 @@ class SchoolTourAlbumAdmin(BaseValidatedAdmin):
 
     change_list_template = "admin/schooltour_dashboard.html"
     form =  SchoolTourAlbumAdminForm
-    inlines = [SchoolTourMediaInline]
 
 
     list_display = (
@@ -151,7 +138,9 @@ class SchoolTourAlbumAdmin(BaseValidatedAdmin):
         "album_type",
         "status_badge",
         "event_date",
+        "view_media",
         "created_at",
+        "add_media",
         "created_name",
         "updated_name",
         "deleted_name",
@@ -167,9 +156,35 @@ class SchoolTourAlbumAdmin(BaseValidatedAdmin):
 
     search_fields = ("title",)
 
+    list_per_page = 10
+
     ordering = ("-event_date",)
 
     readonly_fields = ("created_at", "updated_at", "created_by","updated_by","deleted_by")
+
+    def view_media(self, obj):
+        url = (
+            reverse("admin:gallery_gallerymedia_changelist")
+            + f"?album__id__exact={obj.id}"
+        )
+        return format_html(
+            '<a class="button" href="{}">View Media</a>',
+            url
+        )
+
+    view_media.short_description = "Media"
+
+    def add_media(self, obj):
+        url = (
+            reverse("admin:gallery_gallerymedia_add")
+            + f"?album={obj.id}"
+        )
+        return format_html(
+            '<a class="button" href="{}">Add Media</a>',
+            url
+        )
+
+    add_media.short_description = "Add Media"
 
     def changelist_view(self, request, extra_context=None):
 
@@ -345,19 +360,20 @@ class SchoolTourAlbumAdmin(BaseValidatedAdmin):
     unpublish_albums.short_description = "Unpublish selected albums"
 
 
-
-@admin.register(SchoolTourMedia)
-class SchoolTourMediaAdmin(BaseValidatedAdmin):
-    list_display = ("album", "image", "video", "created_at")
-    list_filter = ("album__album_type",)
-    search_fields = ("album__title",)
-
-
-
 @admin.register(SchoolSong)
 class SchoolSongAdmin(BaseValidatedAdmin):
-    list_display = ("title", "is_active")
-    readonly_fields = ("is_active","preview",)
+    list_display = ("title", "is_active", "audio_preview")
+    readonly_fields = ("is_active", "audio_preview")
+
+    def audio_preview(self, obj):
+        if obj.audio and obj.audio.file: 
+            return format_html(
+                '<audio controls style="height:30px;"><source src="{}" type="audio/mpeg"></audio>',
+                obj.audio.file.url
+            )
+        return "No audio"
+
+    audio_preview.short_description = "Preview"
 
 
 

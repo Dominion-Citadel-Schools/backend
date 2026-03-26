@@ -14,10 +14,10 @@ else:
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.production")
 
 STATIC_URL = "/static/"
-STATIC_ROOT = "/home/domiloph/staging.dominioncitadelschools.com/static"
+STATIC_ROOT = "/home/domiloph/api.dominioncitadelschools.com/static"
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT = "/home/domiloph/staging.dominioncitadelschools.com/media"
+MEDIA_ROOT = "/home/domiloph/api.dominioncitadelschools.com/media"
 
 APP_ENV = "prod"
 
@@ -31,12 +31,12 @@ APPEND_SLASH = False
 
 DATABASES = {
     'default': {
-           'ENGINE': 'django.db.backends.mysql',
-            'NAME': config('DB_NAME_SG'),
-            'USER': config('DB_USER_SG'),
-            'PASSWORD': config('DB_PASSWORD_SG'),
-            'HOST': config('DB_HOST'),
-            'PORT': config('DB_PORT'),
+           'ENGINE': 'django.db.backends.postgresql',
+            'NAME': config('DB_NAME_PROD'),
+            'USER': config('DB_USER_PROD'),
+            'PASSWORD': config('DB_PASSWORD_PROD'),
+            'HOST': config('DB_HOST_PROD', default='localhost'),
+            'PORT': config('DB_PORT_PROD'),
     }
 }
 
@@ -49,7 +49,7 @@ CACHES = {
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
-EMAIL_HOST = "staging.dominioncitadelschools.com"
+EMAIL_HOST = "api.dominioncitadelschools.com"
 
 EMAIL_PORT = 465
 
@@ -57,8 +57,8 @@ EMAIL_USE_SSL = True
 
 EMAIL_TIMEOUT = 20
 
-EMAIL_HOST_USER = "noreply@staging.dominioncitadelschools.com"
+EMAIL_HOST_USER = "noreply@api.dominioncitadelschools.com"
 
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
-DEFAULT_FROM_EMAIL = "Dominion Citadel Schools <noreply@staging.dominioncitadelschools.com>"
+DEFAULT_FROM_EMAIL = "Dominion Citadel Schools <noreply@api.dominioncitadelschools.com>"

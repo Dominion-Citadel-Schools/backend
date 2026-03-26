@@ -56,6 +56,7 @@ class TestimonialAdmin(BaseValidatedAdmin):
     "hard_delete_selected"
 ]
     readonly_fields = ("moderated_by", "moderated_at")
+    list_per_page = 10
     form = TestimonialAdminForm
     change_list_template = "admin/testimonial_change_list.html"
 

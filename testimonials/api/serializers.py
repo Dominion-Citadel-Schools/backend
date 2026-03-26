@@ -7,7 +7,7 @@ from ..models import Testimonial
 
 class TestimonialSerializer(serializers.ModelSerializer):
     
-    recaptcha_token = serializers.CharField(write_only=True)
+    #recaptcha_token = serializers.CharField(write_only=True)
     image_url = serializers.SerializerMethodField()
 
     class Meta:
@@ -20,7 +20,6 @@ class TestimonialSerializer(serializers.ModelSerializer):
             "message",
             "class_level",
             "graduation_year",
-            "recaptcha_token",
             "status",
             "image_id",
             "image_url",
@@ -33,7 +32,7 @@ class TestimonialSerializer(serializers.ModelSerializer):
             url = obj.image.file.url
             return request.build_absolute_uri(url) if request else url
         return None
-
+    '''
     def validate(self, attrs):
         token = attrs.pop("recaptcha_token")
 
@@ -51,6 +50,8 @@ class TestimonialSerializer(serializers.ModelSerializer):
          raise serializers.ValidationError("Invalid reCAPTCHA.")
 
         return attrs
+
+    '''
 
     def validate_full_name(self, value):
         value = value.strip()

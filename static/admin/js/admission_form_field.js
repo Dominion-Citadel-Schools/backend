@@ -1,60 +1,33 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    if (typeof django === "undefined" || !django.jQuery) {
-        console.error("Django jQuery not available");
-        return;
-    }
+    function toggleOptions(row) {
+        const fieldType = row.querySelector("select[name$='field_type']");
+        const optionsField = row.querySelector("textarea[name$='options']")?.closest(".form-row");
 
-    const $ = django.jQuery;
+        if (!fieldType || !optionsField) return;
 
-    function toggleOptionsField(row) {
-
-        // ✅ get select inside THIS row
-        const fieldType = row.find('select[id$="-field_type"]');
-
-        // ✅ get value correctly
-        const value = fieldType.val();
-
-        // ✅ target options column (adjust this selector if needed)
-        const optionsField = row.find('.-field_type');
-        console.log(optionsField.length);
-        console.log("Value:", value);
-
-        if (value === "SELECT") {
-            console.log("SHOWING");
-
-            optionsField.css("display", "table-cell");
-
-        } else {
-            console.log("HIDING");
-
-           optionsField.css("display", "none");
+        function update() {
+            if (fieldType.value === "SELECT") {
+                optionsField.style.display = "";
+            } else {
+                optionsField.style.display = "none";
+            }
         }
+
+        fieldType.addEventListener("change", update);
+        update();
     }
 
-    function initInline() {
-        $('tr.form-row').each(function () {
-            toggleOptionsField($(this));
-        });
+    function init() {
+        document.querySelectorAll(".dynamic-admissionformfield_set").forEach(toggleOptions);
     }
 
-    initInline();
+    init();
 
-    // ✅ change event
-    $(document).on('change', 'select[id$="-field_type"]', function () {
-        toggleOptionsField($(this).closest('tr'));
-    });
-
-    // ✅ select2 event
-    $(document).on('select2:select', 'select[id$="-field_type"]', function () {
-        toggleOptionsField($(this).closest('tr'));
-    });
-
-    // ✅ new inline row
-    $(document).on('formset:added', function (event, $row, formsetName) {
-        if (formsetName === 'admissionformfield_set') {
-            toggleOptionsField($row);
+    // Handle new inline rows
+    document.body.addEventListener("click", function (e) {
+        if (e.target.classList.contains("add-row")) {
+            setTimeout(init, 300);
         }
     });
-
 });
