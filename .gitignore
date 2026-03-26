@@ -1,2 +1,11 @@
 # removed .env file
 .env
+
+/media/
+/media/*
+*.mp4
+*.mp3
+*.wav
+*.jpg
+*.png
+*.jpeg

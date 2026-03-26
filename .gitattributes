@@ -7,6 +7,7 @@
 *.css text eol=lf
 *.html text eol=lf
 *.svg text eol=lf
+*.env text eol=lf
 
 # Binary files (images, fonts) should not be touched
 *.png binary

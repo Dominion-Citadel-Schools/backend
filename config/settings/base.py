@@ -6,8 +6,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-ENV_PATH = os.path.join(BASE_DIR, '.env')  # for local
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
@@ -18,10 +16,12 @@ SECRET_KEY = 'django-insecure-f5k3w7+7vxi&7r2$fqq!u&dg886z*@(0ay&tq3=zrxjj)k3$c0
 DEBUG = config("DEBUG", default=False, cast=bool)
 
 # Override for cPanel (production_app & staging_app level)
-if not os.path.exists(ENV_PATH):
-    ENV_PATH = os.path.join(os.getcwd(), '.env')
+# Default: local (.env inside backend)
+ENV_PATH = Path(
+    os.environ.get("ENV_PATH", BASE_DIR.parent / ".env")
+)
 
-config = Config(RepositoryEnv(ENV_PATH))
+config = Config(RepositoryEnv(str(ENV_PATH)))
 
 APP_ENV = os.getenv("APP_ENV", "dev")
 
