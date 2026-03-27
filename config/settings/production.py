@@ -31,7 +31,7 @@ APPEND_SLASH = False
 
 DATABASES = {
     'default': {
-           'ENGINE': 'django.db.backends.postgresql',
+           'ENGINE': 'django.db.backends.mysql',
             'NAME': config('DB_NAME_PROD'),
             'USER': config('DB_USER_PROD'),
             'PASSWORD': config('DB_PASSWORD_PROD'),
