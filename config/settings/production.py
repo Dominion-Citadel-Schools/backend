@@ -1,17 +1,11 @@
 from .base import *
 from decouple import config
-import os
 
 
 
 DEBUG = False
 
-host = os.environ.get("HTTP_HOST", "")
-
-if "staging" in host:
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.staging")
-else:
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.production")
+ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="").split(",")
 
 STATIC_URL = "/static/"
 STATIC_ROOT = "/home/domiloph/api.dominioncitadelschools.com/static"
