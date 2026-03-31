@@ -2,8 +2,12 @@ gallery_section:
 
   albums:
 
+    - section_type: "gallery"
+
       title: "Celebrate Every Moment at Oribanwa"
-      
+      description: >
+        From community service and career day dress-ups to sports competitions, swimming outings, and beach excursions, Oribanwa Campus offers students a rich blend of learning, fun, and personal growth. Our special events are designed to inspire, engage, and create lasting memories
+
       album_type: "PICTURE"
 
       cover_image: "gallery/oribanwaspecialevent/Oribanwa_campuse_special_events_cover_image.jpeg"
