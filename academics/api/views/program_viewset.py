@@ -1,17 +1,21 @@
 from rest_framework import viewsets
 from ...models.program import Program
 from ..serializers.program_serializer import ProgramSerializer
-from django_filters.rest_framework import DjangoFilterBackend
+#from django_filters.rest_framework import DjangoFilterBackend
 
 
 
 class ProgramViewSet(viewsets.ReadOnlyModelViewSet):
     """
-    Provides:
-    - GET /programs/
-    - GET /programs/{id}/
+    Returns all active academic programs with campuses
     """
-    queryset = Program.objects.filter(is_active=True)
+
     serializer_class = ProgramSerializer
-    filter_backends = [DjangoFilterBackend]
-    filterset_fields = ["category"]
+
+    def get_queryset(self):
+        return (
+            Program.objects
+            .filter(is_active=True)
+            .prefetch_related("campuses")
+            .order_by("category", "id")
+        )

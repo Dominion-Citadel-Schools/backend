@@ -26,7 +26,7 @@ class ApiRootView(APIView):
             "admissions": f"{base}admissions/",
             "testimonials": f"{base}testimonials/",
             "media" : f"{base}albums/",
-            "webhooks": f"{base}webhooks/",
+            "webhooks": f"{base}webhook/sync-stats/",
         
         })
 

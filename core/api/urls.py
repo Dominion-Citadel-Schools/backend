@@ -1,5 +1,6 @@
 from django.urls import path, include
-from academics.api.routers import get_v1_academics_router, get_v1_webhook_router 
+from academics.api.routers import get_v1_academics_router
+from core.webhook.views.webhook_view import sync_school_stats 
 from .routers import get_v1_core_router
 from about.api.router import about_full_view_router
 from gallery.api.router import get_media_type_routers
@@ -37,7 +38,7 @@ urlpatterns = [
     path("contact/", include(contact_router.urls)),
 
     # Webhooks
-    path("webhooks/", include(get_v1_webhook_router().urls)),
+    path("webhook/sync-stats/", sync_school_stats),
 
     # Auth
     path("auth/login/", TokenObtainPairView.as_view(), name="token_obtain_pair"),

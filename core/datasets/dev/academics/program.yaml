@@ -1,39 +1,69 @@
 Program:
-  - title: "Elementary Education"
-    category: "ELEMENTARY"
-    grades: "K-5"
-    description: "Building strong foundations in core subjects with engaging and interactive learning experiences."
-    key_features:
-      - "STEM Integration"
-      - "Phonics & Literacy"
-      - "Creative Learning"
-      - "Character Development"
-    full_day: true
-    is_active: true
-    image: null
+  - title: Elementary Education
+    category: ELEMENTARY
+    grades: "Ages 3–11"
+    description: "Building strong foundations in core subjects with creative and engaging learning experiences."
+    image: "about/schooltour/PHOTO-2024-07-16-14-45-04_2.jpg"
+    campuses:
+      - campus_name: Sangotedo
+        features:
+          - STEM Integration
+          - Arts & Music
+          - Physical Education
+          - Character Development
+      - campus_name: Majek
+        features:
+          - STEM Integration
+          - Arts & Music
+          - Physical Education
+          - Character Development
+      - campus_name: Oribanwa
+        features:
+          - STEM Integration
+          - Arts & Music
+          - Physical Education
+          - Character Development
 
-  - title: "Middle School"
-    category: "MIDDLE"
-    grades: "6-8"
+  - title: Middle School
+    category: MIDDLE
+    grades: "Ages 11–14"
     description: "Preparing students for high school with advanced academics and leadership opportunities."
-    key_features:
-      - "Advanced Placement Prep"
-      - "STEM Programs"
-      - "Student Leadership"
-      - "Sports & Extracurriculars"
-    full_day: true
-    is_active: true
-    image: null
+    image: "about/schooltour/PHOTO-2024-07-16-14-45-06_2.jpg"
+    campuses:
+      - campus_name: Sangotedo
+        features:
+          - Advanced Placement
+          - Robotics Club
+          - Student Government
+          - Sports Teams
+      - campus_name: Majek
+        features:
+          - Advanced Placement
+          - Robotics Club
+          - Student Government
+          - Sports Teams
+      - campus_name: Oribanwa
+        features:
+          - Advanced Placement
+          - Robotics Club
+          - Student Government
+          - Sports Teams
 
-  - title: "High School"
-    category: "HIGH"
-    grades: "9-12"
+  - title: High School
+    category: HIGH
+    grades: "Ages 14–18"
     description: "College preparatory education with diverse pathways and real-world applications."
-    key_features:
-      - "AP Courses"
-      - "Career Pathways"
-      - "College Counseling"
-      - "Internship Opportunities"
-    full_day: true
-    is_active: true
-    image: null
+    image: "about/schooltour/PHOTO-2025-06-22-16-46-24.jpg"
+    campuses:
+      - campus_name: Majek
+        features:
+          - AP Courses
+          - Dual Enrollment
+          - Career Pathways
+          - College Counseling
+      - campus_name: Oribanwa
+        features:
+          - AP Courses
+          - Dual Enrollment
+          - Career Pathways
+          - College Counseling

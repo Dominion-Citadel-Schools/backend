@@ -5,7 +5,7 @@ from .base_admin import BaseValidatedAdmin
 from academics.models.co_curriculum import Activity, ActivityCategory
 from academics.models.acadmic_year import AcademicYear, CalendarEvent
 from .models.campuse import Campuse
-from .models.program import Program
+from .models.program import Program, ProgramCampus
 
 
 @admin.register(Campuse)
@@ -25,13 +25,44 @@ class CampuseAdmin(BaseValidatedAdmin):
         }
     }
 
+class ProgramCampusInline(admin.TabularInline):
+    model = ProgramCampus
+    extra = 1
+    ordering = ["order"]
+
+
 @admin.register(Program)
 class ProgramAdmin(BaseValidatedAdmin):
-    list_display = ("title", "category", "grades", "is_active")
-    list_filter = ("category", "is_active")
-    search_fields = ("title", "grades")
+    list_display = (
+        "title",
+        "category",
+        "enrollment_capacity",
+        "full_day",
+        "is_active",
+    )
+
+    list_filter = ("category", "is_active", "full_day")
+    search_fields = ("title",)
+
+    inlines = [ProgramCampusInline]
 
 
+@admin.register(ProgramCampus)
+class ProgramCampusAdmin(BaseValidatedAdmin):
+    list_display = ("program", "campus_name", "order")
+    list_filter = ("program",)
+    search_fields = ("campus_name",)
+
+    formfield_overrides = {
+        models.JSONField: {
+            "widget": JSONEditorWidget(
+                options={
+                    "mode": "tree",
+                    "modes": ["tree", "code"],
+                }
+            )
+        }
+    }
 
 
 @admin.register(ActivityCategory)

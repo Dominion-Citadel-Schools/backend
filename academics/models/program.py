@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.exceptions import ValidationError
-from django.utils.timezone import now
 from media_config.models.image import Image
+
 
 class Program(models.Model):
     CATEGORY_CHOICES = [
@@ -12,18 +12,16 @@ class Program(models.Model):
 
     title = models.CharField(max_length=120)
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
-    grades = models.CharField(max_length=20)
     description = models.TextField()
-    key_features = models.JSONField(default=list, help_text="List of program features")
-     # 🔹 Controlled externally
+
     enrollment_capacity = models.PositiveIntegerField(
         null=True,
         blank=True,
-        editable=False  # Not allow admin manual editing for now, but not via API
+        editable=False
     )
+
     full_day = models.BooleanField(default=True)
     is_active = models.BooleanField(default=True)
-    created_at = models.DateTimeField(auto_now_add=True)
 
     image = models.ForeignKey(
         Image,
@@ -32,42 +30,57 @@ class Program(models.Model):
         blank=True
     )
 
+    created_at = models.DateTimeField(auto_now_add=True)
+
     class Meta:
         ordering = ["category", "title"]
 
     def clean(self):
+        if not self.title.strip():
+            raise ValidationError({"title": "Title cannot be empty"})
+
+    def __str__(self):
+        return self.title
+    
+
+class ProgramCampus(models.Model):
+    program = models.ForeignKey(
+        Program,
+        related_name="campuses",
+        on_delete=models.CASCADE
+    )
+
+    campus_name = models.CharField(max_length=100)
+
+    features = models.JSONField(
+        default=list,
+        help_text="List of features for this campus"
+    )
+
+    order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ["order"]
+
+    def clean(self):
         errors = {}
 
-        self.title = self.title.strip()
-        if not self.title:
-            errors["title"] = "Program title cannot be empty."
+        if not self.campus_name.strip():
+            errors["campus_name"] = "Campus name cannot be empty."
 
-        self.grades = self.grades.strip()
-        if not self.grades:
-            errors["grades"] = "Grades field cannot be empty."
-
-        # JSON validation
-        if not isinstance(self.key_features, list):
-            errors["key_features"] = "Key features must be a list."
+        if not isinstance(self.features, list):
+            errors["features"] = "Features must be a list."
         else:
             cleaned = []
-            for feature in self.key_features:
-                if not isinstance(feature, str) or not feature.strip():
-                    errors["key_features"] = "Each feature must be a non-empty string."
+            for f in self.features:
+                if not isinstance(f, str) or not f.strip():
+                    errors["features"] = "Each feature must be a non-empty string."
                     break
-                cleaned.append(feature.strip())
-            self.key_features = cleaned
-
-        # External API validation
-        if self.enrollment_capacity is not None:
-            if self.enrollment_capacity <= 0:
-                errors["enrollment_capacity"] = (
-                    "Enrollment capacity must be greater than zero."
-                )
+                cleaned.append(f.strip())
+            self.features = cleaned
 
         if errors:
             raise ValidationError(errors)
 
-    def save(self, *args, **kwargs):
-        self.full_clean()
-        super().save(*args, **kwargs)
+    def __str__(self):
+        return f"{self.program.title} - {self.campus_name}"

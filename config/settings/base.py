@@ -17,16 +17,34 @@ DEBUG = config("DEBUG", default=False, cast=bool)
 
 # Override for cPanel (production_app & staging_app level)
 # Default: local (.env inside backend)
+'''
 ENV_PATH = Path(
     os.environ.get("ENV_PATH", BASE_DIR.parent / ".env")
 )
 
+
 config = Config(RepositoryEnv(str(ENV_PATH)))
+'''
+# Try multiple locations
+ENV_PATH = BASE_DIR / ".env"
+
+# If not found, fallback to project root (for cPanel or other setups)
+if not ENV_PATH.exists():
+    ENV_PATH = Path(os.getcwd()) / ".env"
+
+# FINAL fallback (prevent crash)
+if not ENV_PATH.exists():
+    config = Config()  # fallback to environment variables only
+else:
+    config = Config(RepositoryEnv(str(ENV_PATH)))
 
 APP_ENV = os.getenv("APP_ENV", "dev")
 
 LOGIN_REDIRECT_URL = "/admin/"
 
+THIRD_PARTY_USERNAME = config("THIRD_PARTY_USERNAME")
+THIRD_PARTY_PASSWORD = config("THIRD_PARTY_PASSWORD")
+SYNC_SECRET_KEY = config("SYNC_SECRET_KEY")
 
 # Application definition
 

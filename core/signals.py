@@ -14,4 +14,3 @@ def invalidate_homepage_cache(sender, instance, **kwargs):
 for model in HOMEPAGE_DEPENDENT_MODELS:
     post_save.connect(invalidate_homepage_cache, sender=model, dispatch_uid="homepage_cache_invalidator")
     post_delete.connect(invalidate_homepage_cache, sender=model, dispatch_uid="homepage_cache_invalidator")
-print("Signals registered")
