@@ -26,17 +26,21 @@ ENV_PATH = Path(
 config = Config(RepositoryEnv(str(ENV_PATH)))
 '''
 # Try multiple locations
-ENV_PATH = BASE_DIR / ".env"
+env_paths = [
+    BASE_DIR / ".env",
+    BASE_DIR.parent / ".env",
+]
 
-# If not found, fallback to project root (for cPanel or other setups)
-if not ENV_PATH.exists():
-    ENV_PATH = Path(os.getcwd()) / ".env"
+env_file = None
+for path in env_paths:
+    if path.exists():
+        env_file = path
+        break
 
-# FINAL fallback (prevent crash)
-if not ENV_PATH.exists():
-    config = Config()  # fallback to environment variables only
+if env_file:
+    config = Config(RepositoryEnv(str(env_file)))
 else:
-    config = Config(RepositoryEnv(str(ENV_PATH)))
+    config = Config()  # fallback to system env
 
 APP_ENV = os.getenv("APP_ENV", "dev")
 
