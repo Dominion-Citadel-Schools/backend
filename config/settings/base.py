@@ -46,6 +46,7 @@ APP_ENV = os.getenv("APP_ENV", "dev")
 
 LOGIN_REDIRECT_URL = "/admin/"
 
+
 THIRD_PARTY_USERNAME = config("THIRD_PARTY_USERNAME")
 THIRD_PARTY_PASSWORD = config("THIRD_PARTY_PASSWORD")
 SYNC_SECRET_KEY = config("SYNC_SECRET_KEY")
@@ -253,6 +254,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
 
 
 # Django REST Framework Configuration

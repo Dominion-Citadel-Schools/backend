@@ -30,7 +30,7 @@ class GalleryService:
             cache.set(cache_key, album_ids, cls.CACHE_TIMEOUT)
 
         # STEP 2: Rebuild FULL queryset properly (IMPORTANT)
-        queryset = GalleryAlbum.objects.filter(id__in=album_ids)
+        queryset = GalleryAlbum.objects.filter(id__in=album_ids, is_published=True)
 
         # Preserve order
         preserved_order = Case(
@@ -45,13 +45,12 @@ class GalleryService:
         )
 
         # STEP 4: Reapply media filtering
-        if media_type == "PICTURE":
-            media_qs = GalleryMedia.objects.filter(image__isnull=False)
-        elif media_type == "VIDEO":
-            media_qs = GalleryMedia.objects.filter(video__isnull=False)
-        else:
-            media_qs = GalleryMedia.objects.all()
+        if media_type == "PICTURE": media_qs = GalleryMedia.objects.filter(image__isnull=False) 
 
+        elif media_type == "VIDEO": media_qs = GalleryMedia.objects.filter(video__isnull=False) 
+
+        else: media_qs = GalleryMedia.objects.all()
+        
         queryset = queryset.prefetch_related(
             Prefetch(
                 "media_items",

@@ -32,7 +32,7 @@ class SchoolTourService():
             cache.set(cache_key, album_ids, cls.CACHE_TIMEOUT)
 
         # STEP 2: Rebuild FULL queryset properly (IMPORTANT)
-        queryset = SchoolTour.objects.filter(id__in=album_ids)
+        queryset = SchoolTour.objects.filter(id__in=album_ids, is_published=True)
 
         # Preserve order
         preserved_order = Case(

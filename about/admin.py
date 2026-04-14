@@ -164,7 +164,7 @@ class SchoolTourAlbumAdmin(BaseValidatedAdmin):
 
     def view_media(self, obj):
         url = (
-            reverse("admin:gallery_gallerymedia_changelist")
+            reverse("admin:about_schooltourmedia_changelist")
             + f"?album__id__exact={obj.id}"
         )
         return format_html(
@@ -176,7 +176,7 @@ class SchoolTourAlbumAdmin(BaseValidatedAdmin):
 
     def add_media(self, obj):
         url = (
-            reverse("admin:gallery_gallerymedia_add")
+            reverse("admin:about_schooltourmedia_add")
             + f"?album={obj.id}"
         )
         return format_html(

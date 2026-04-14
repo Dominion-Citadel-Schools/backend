@@ -1,6 +1,5 @@
 # removed .env file
 .env
-
 /media/
 /media/*
 *.mp4
