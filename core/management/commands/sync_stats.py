@@ -11,8 +11,8 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         last = SchoolStats.objects.first()
 
-        if last and last.updated_at:
-            if timezone.now() - last.updated_at < timedelta(days=90):
+        if last and last.last_updated:
+            if timezone.now() - last.last_updated < timedelta(days=90):
                 self.stdout.write("Skipping (not yet 90 days)")
                 return
 

@@ -67,6 +67,9 @@ class Admission(models.Model):
         related_name="rejected_admissions"
     )
 
+    class Meta:
+        ordering = ["-created_at"]
+
     def clean(self):
 
         # children validation
