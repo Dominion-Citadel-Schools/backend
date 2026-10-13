@@ -7,10 +7,12 @@ from core.utils.text_filters import clean_text
 class ContactMessage(models.Model):
 
     SUBJECT_CHOICES = (
-        ("GENERAL", "General Inquiry"),
         ("ADMISSION", "Admission Inquiry"),
-        ("ACADEMICS", "Academics"),
-        ("SUPPORT", "Support"),
+        ("ACADEMIC", "Academic Programs"),
+        ("TUITION", "Tuition & Financial Aid"),
+        ("CAMPUS", "Campus Visit"),
+        ("GENERAL", "General Information"),
+        ("OTHER", "Other"),
     )
 
     full_name = models.CharField(max_length=150)
